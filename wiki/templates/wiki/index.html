@@ -1,0 +1,9 @@
+{% extends 'wiki/base.html' %}
+
+{% block body %}
+<ul>
+  {% for web in website_list %}
+  <li><a href="{% url 'wiki:detail' web.id %}">{{web.website_name}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

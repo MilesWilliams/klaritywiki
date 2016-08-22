@@ -1,0 +1,27 @@
+{% extends 'wiki/base.html' %}
+{% load staticfiles %}
+{% block title %}Wiki details{% endblock %}
+{% block body %}
+
+    <a href="{% url 'wiki:index' %}">Go back</a>
+
+    <section>
+
+        <h1>{{categories.title}}</h1>
+        <h3>Author:{{categories.author}}</h3>
+        <h5>{{categories.published_date}}</h5>
+        {% if user.is_authenticated %}
+        <a href="{% url 'wiki:edit_category' categories.id %}">edit</a>
+        {% endif %}
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        <div class="content">
+          {{categories.text |safe|linebreaksbr}}
+        </div>
+
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+    </section>
+{% endblock %}

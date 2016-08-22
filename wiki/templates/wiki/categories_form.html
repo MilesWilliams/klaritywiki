@@ -1,0 +1,26 @@
+<!-- this file needs to be the name of the model + _form-->
+
+{% extends 'wiki/base.html' %}
+{% load staticfiles %}
+{% block title %}Add new album{% endblock %}
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="col-sm-12 col-md-7 ">
+            <div class="panel panel-default">
+                <dv class="panel-body">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'wiki/includes/form-template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </dv>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
